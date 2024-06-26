@@ -10,20 +10,22 @@ export type WeatherImages = {
   thunderstorm: string;
   snow: string;
   mist: string;
+  default: string;
 };
 
 export const backgroundsPath: WeatherImages = {
-  'clear sky': './img/sky-clean.webp',
-  'few clouds': './img/few-clouds.webp',
-  'scattered clouds': './img/scattered-clouds.webp',
-  'broken clouds': './img/few-clouds.webp',
-  'shower rain': './img/shower-rain.webp',
-  'light rain': './img/light-rain.webp',
-  'overcast clouds': './img/overcast-clouds.webp',
-  rain: './img/cloudy-rain.webp',
-  thunderstorm: './img/rainy-storm.webp',
-  snow: './img/snow.webp',
-  mist: './img/snow.webp',
+  'clear sky': './img/sky-clean.jpg',
+  'few clouds': './img/few-clouds.jpg',
+  'scattered clouds': './img/scattered-clouds.jpg',
+  'broken clouds': './img/few-clouds.jpg',
+  'shower rain': './img/shower-rain.jpg',
+  'light rain': './img/light-rain.jpg',
+  'overcast clouds': './img/overcast-clouds.jpg',
+  rain: './img/cloudy-rain.jpg',
+  thunderstorm: './img/rainy-storm.jpg',
+  snow: './img/snow.jpg',
+  mist: './img/snow.jpg',
+  default: './img/default.jpg',
 };
 
 export type WeatherDescription = keyof WeatherImages;

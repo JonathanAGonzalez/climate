@@ -6,10 +6,6 @@ type LayoutColumnsProps = {
   contentSecondColumn: React.ReactNode;
 };
 
-enum DefaultBackground {
-  default = './img/default.webp',
-}
-
 function isWeatherDescription(
   description: string
 ): description is WeatherDescription {
@@ -24,7 +20,7 @@ export const LayoutColumns = ({
   const description = weatherData?.weather[0]?.description || '';
   const background = isWeatherDescription(description)
     ? backgroundsPath[description]
-    : DefaultBackground.default;
+    : backgroundsPath.default;
 
   return (
     <div
