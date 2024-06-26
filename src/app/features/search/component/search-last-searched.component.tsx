@@ -1,28 +1,39 @@
-import { classnames } from 'tailwindcss-classnames';
+import { useWeatherStore } from '@/app/core/store/weather.store';
 
 type ListItemsProps = {
-  list: {
-    id: number;
-    name: string;
-  }[];
   textGrayActive?: boolean;
   rulesCss?: string;
+  withHover?: boolean;
 };
 
 export const ListItems = ({
-  list,
   textGrayActive,
   rulesCss,
+  withHover = false,
 }: ListItemsProps) => {
+  const list = useWeatherStore((store) => store.latestSearches);
+  const onSelectedValue = useWeatherStore((store) => store.onSelectedValue);
+  const onDeleteLatestSearch = useWeatherStore(
+    (store) => store.onDeleteLatestSearch
+  );
+
   return (
     <article className={rulesCss}>
-      <ul className='gap-4 grid'>
-        {list.map((item) => (
+      <ul className='gap-4 grid overflow-hidden'>
+        {list.map((item, i) => (
           <li
-            className={textGrayActive ? 'text-[#B0ADAD]' : 'text-white'}
-            key={item?.id}
+            className={`${
+              textGrayActive ? 'text-[#B0ADAD]' : 'text-white'
+            } items-center gap-4 flex`}
+            key={i}
           >
-            <button className='hover:text-white'>{item?.name}</button>
+            <button
+              onClick={() => onSelectedValue(item)}
+              className={withHover ? 'hover:text-white' : 'cursor-default'}
+            >
+              {item}
+            </button>
+            <button onClick={() => onDeleteLatestSearch(item)}>X</button>
           </li>
         ))}
       </ul>
