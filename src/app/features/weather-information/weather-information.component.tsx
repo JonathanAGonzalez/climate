@@ -3,6 +3,7 @@ import { getFormattedDate } from '@/app/core/utils/formatDate';
 import { formatTemperature } from '@/app/core/utils/fortmatTemperature';
 import flags from '@/app/core/flags';
 import { Search } from '../search/component/search.component';
+import Image from 'next/image';
 
 export const WatherInformation = () => {
   const weatherData = useWeatherStore((store) => store.weatherData);
@@ -11,7 +12,7 @@ export const WatherInformation = () => {
 
   return (
     <section
-      className={`h-full flex flex-col justify-between md:justify-start md:justify-items-end ${
+      className={`h-full flex flex-col justify-between md:justify-center md:justify-items-start ${
         !weatherData
           ? 'content-start md:content-center'
           : 'content-between md:grid'
@@ -34,9 +35,15 @@ export const WatherInformation = () => {
           </p>
           <div className='ml-4'>
             <div className='flex flex-col items-start'>
-              <h3 className='text-3xl'>
-                {country} - {flag?.emoji}
-              </h3>
+              <div className='text-3xl flex items-center gap-4'>
+                <h3>{country}</h3> -
+                <Image
+                  src={flag?.image || ''}
+                  alt='Foto'
+                  width={30}
+                  height={100}
+                />
+              </div>
               <span className='flex items-center'>
                 <h2 className='text-[25px] md:text-[45px] font-semibold'>
                   {weatherData?.name}
