@@ -6,6 +6,7 @@ export type WeatherImages = {
   'shower rain': string;
   'light rain': string;
   'overcast clouds': string;
+  'heavy snow': string;
   rain: string;
   thunderstorm: string;
   snow: string;
@@ -24,6 +25,7 @@ export const backgroundsPath: WeatherImages = {
   rain: './img/cloudy-rain.jpg',
   thunderstorm: './img/rainy-storm.jpg',
   snow: './img/snow.jpg',
+  'heavy snow': './img/snow.jpg',
   mist: './img/snow.jpg',
   default: './img/default.jpg',
 };
